@@ -1,5 +1,7 @@
 # mask-pii
 
+[![Build Status](https://travis-ci.org/moneytree/mask-pii.js.svg?branch=master)](https://travis-ci.org/moneytree/mask-pii.js)
+
 JavaScript / Node.js module for masking PII in strings.
 
 Currently only e-mail address and domain name masking are supported.
