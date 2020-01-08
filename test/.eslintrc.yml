@@ -1,0 +1,4 @@
+extends: '@moneytree/eslint-config/nodejs-test'
+
+env:
+  jest: true
