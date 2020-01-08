@@ -1,13 +1,13 @@
-const { string, domain, email } = require('..');
+const { text, domain, email } = require('..');
 
 describe('Mask PII', () => {
-  test('string', () => {
-    expect(string('')).toEqual('********');
-    expect(string('a')).toEqual('a********');
-    expect(string('Hello world')).toEqual('H********d');
-    expect(string('Hello world', '★')).toEqual('H★★★★★★★★d');
-    expect(string('Hello world', '#')).toEqual('H########d');
-    expect(string('Hello world', '##')).toEqual('H################d');
+  test('text', () => {
+    expect(text('')).toEqual('********');
+    expect(text('a')).toEqual('a********');
+    expect(text('Hello world')).toEqual('H********d');
+    expect(text('Hello world', '★')).toEqual('H★★★★★★★★d');
+    expect(text('Hello world', '#')).toEqual('H########d');
+    expect(text('Hello world', '##')).toEqual('H################d');
 
     // test bad input
 
@@ -24,7 +24,7 @@ describe('Mask PII', () => {
 
     for (const input of notStrings) {
       expect(() => {
-        string(input);        // bad subject
+        text(input);         // bad subject
       }).toThrow(new TypeError('Subject is not a string'));
 
       expect(() => {
@@ -41,7 +41,7 @@ describe('Mask PII', () => {
       }
 
       expect(() => {
-        string('abc', input); // bad mask
+        text('abc', input); // bad mask
       }).toThrow(new TypeError('Mask is not a string'));
     }
   });
