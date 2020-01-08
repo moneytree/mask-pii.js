@@ -48,6 +48,8 @@ describe('Mask PII', () => {
 
   test('domain', () => {
     expect(domain('foo')).toEqual('f********o');
+    expect(domain('foo.')).toEqual('f********.');
+    expect(domain('.foo')).toEqual('.********o');
     expect(domain('foo.com')).toEqual('f********o.com');
     expect(domain('foo.bar.com')).toEqual('f********r.com');
     expect(domain('foo.com', '#')).toEqual('f########o.com');
